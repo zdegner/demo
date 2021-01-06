@@ -1,4 +1,11 @@
 micronaut:
   application:
     name: demo
-redis.uri: redis://localhost
+
+redis:
+  uri: redis://host.docker.internal:6379
+  caches:
+    sample1:
+      expire-after-write: 14d
+    sample2:
+      expire-after-write: 14d

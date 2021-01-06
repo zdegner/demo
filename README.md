@@ -1,14 +1,20 @@
-## Feature kubernetes documentation
+Ensure redis is running somewhere and accessible to K8S (set to redis://host.docker.internal:6379 by default in the config file)
 
-- [Micronaut Kubernetes Support documentation](https://micronaut-projects.github.io/micronaut-kubernetes/latest/guide/index.html)
+Run the following:
 
-- [https://kubernetes.io/docs/home/](https://kubernetes.io/docs/home/)
+```
+./gradlew jibDockerBuild
+kubectl apply -f k8s.yml
+```
 
-## Feature management documentation
+Cleanup:
 
-- [Micronaut Micronaut Management documentation](https://docs.micronaut.io/latest/guide/index.html#management)
+```
+kubectl delete deployment demo
+kubectl delete service demo
+```
 
-## Feature http-client documentation
-
-- [Micronaut Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
+Wait about 30 minutes and check the number of connections in Redis:
+```
+redis> client list
+```

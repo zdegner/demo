@@ -40,10 +40,12 @@ java {
     targetCompatibility = JavaVersion.toVersion("11")
 }
 
+//micronaut {
+//    version = "2.1.2"
+//}
 
-
-    jib {
-        to {
-            image = "gcr.io/myapp/jib-image"
-        }
+jib {
+    to {
+        image = "demo-image"
     }
+}
